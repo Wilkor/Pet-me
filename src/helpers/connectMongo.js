@@ -6,15 +6,16 @@ const utils = require('./utils');
 
 console.log("teste Mongo", process.env.MONGODB)
 function connectMongo() {
+
     return new Promise((resolve, reject) => {
         let MONGODB = {};
         if (typeof process.env.MONGODB === 'string' && process.env.MONGODB !== '') {
-            
+
             mongoose.set('useCreateIndex', true)
             MONGODB.uri = process.env.MONGODB
             console.log(MONGODB.uri);
 
-       
+
             logMongoOptions(MONGODB);
 
             // When successfully connected
@@ -48,7 +49,7 @@ function connectMongo() {
 }
 
 /**
- * 
+ *
  * @param {Object} MONGODB
  */
 function logMongoOptions(MONGODB) {
@@ -85,8 +86,8 @@ function logMongoOptions(MONGODB) {
 }
 
 /**
- * 
- * @param {string} modelFolder 
+ *
+ * @param {string} modelFolder
  */
 module.exports.init = async modelFolder => {
     try {
